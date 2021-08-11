@@ -12,7 +12,7 @@ export const connection = createConnection({
     database: 'SINAVIS',
     synchronize: true,
     entities: [
-        {House: house},
+        house,
     ],
 });
 

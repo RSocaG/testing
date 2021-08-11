@@ -4,12 +4,12 @@ import graphql from 'graphql';
 
 const queryType = new graphql.GraphQLObjectType({
     name: 'RootQueryType',
-    fields: {...houseMutations},
+    fields: {...houseQueries},
   });
 
   const mutationType = new graphql.GraphQLObjectType({
     name: 'RootMutationType',
-    fields: {...houseQueries},
+    fields: {...houseMutations},
   });
 export const schema = new graphql.GraphQLSchema({
     mutation: mutationType,
