@@ -2,7 +2,7 @@ import { House } from "../house.graphql";
 import { HouseInput } from "../house-input.graphql";
 import graphql from "graphql";
 
-export const createHouse = {
+export const mutations = {
     createHouse: {
         type: House,
         args: {
