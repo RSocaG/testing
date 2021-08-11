@@ -1,15 +1,16 @@
 'use strict'
 
-const schema = require('./graphql-builder');
 
-const express = require('express')
-const http = require('http')
-const ExpressGraphQL = require("express-graphql");
+import  express from 'express';
 
-const PORT = 3006
+import * as http from 'http';
+import {graphqlHTTP} from "express-graphql";
+import { schema } from './graphql-builder.js';
+
+const PORT = 3001
 const app = express()//instancia de express
 
-app.use("/graphql", ExpressGraphQL({ schema: schema, graphiql: true}));
+app.use("/graphql", graphqlHTTP({ schema: schema, graphiql: true,}));
 const server = http.createServer(app)//instancia del servidor
 
 //servidor escuchando en el puerto 3006

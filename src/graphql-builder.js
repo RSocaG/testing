@@ -1,18 +1,17 @@
-import { mutations as houseMutations } from './house/house-mutations';
-import { queries as houseQueries } from './house/house-queries';
+import { mutations as houseMutations } from './house/house-mutations.js';
+import { queries as houseQueries } from './house/house-queries.js';
 import graphql from 'graphql';
 
-export const schema = graphql.GraphQLSchema({
-    query: {
-        name: 'Mutation',
-        fields: {
-            ...houseMutations,
-        }
-    },
-    mutation: {
-        name: 'Query',
-        fields: {
-            ...houseQueries,
-        }
-    },
-})
+const queryType = new graphql.GraphQLObjectType({
+    name: 'RootQueryType',
+    fields: {...houseMutations},
+  });
+
+  const mutationType = new graphql.GraphQLObjectType({
+    name: 'RootMutationType',
+    fields: {...houseQueries},
+  });
+export const schema = new graphql.GraphQLSchema({
+    mutation: mutationType,
+    query: queryType,
+});

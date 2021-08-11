@@ -1,7 +1,7 @@
-import { House } from "../house.graphql";
-import { HouseInput } from "../house-input.graphql";
+import { House } from "../house/models/house.graphql.js";
+import { HouseInput } from "../house/models/house-input.graphql.js";
 import graphql from "graphql";
-import { createHouse, deleteHouse, updateHouse } from "./house.service";
+import { createHouse, deleteHouse, updateHouse } from "./house.service.js";
 
 export const mutations = {
     createHouse: {

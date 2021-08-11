@@ -1,16 +1,18 @@
-import { createConnection, ConnectionOptions } from 'typeorm';
-import { house } from '../house/tables/house.model';
+import typeOrm  from 'typeorm';
+const  { createConnection } = typeOrm;
+import { house } from '../house/tables/house.model.js';
 
-export const connection = await createConnection({
+export const connection = createConnection({
     type: 'mysql',
-    name: 'conection',
+    name: 'SINAVIS',
     host: 'localhost',
     port: 3306,
     username: 'roxy',
-    password: '123456',
-    database: '',
+    password: '12345678',
+    database: 'SINAVIS',
     synchronize: true,
-    entities: {
-        House: house,
-    },
+    entities: [
+        {House: house},
+    ],
 });
+
