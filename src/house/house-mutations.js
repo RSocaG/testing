@@ -1,6 +1,7 @@
 import { House } from "../house.graphql";
 import { HouseInput } from "../house-input.graphql";
 import graphql from "graphql";
+import { createHouse } from "./house.service";
 
 export const mutations = {
     createHouse: {
@@ -12,7 +13,7 @@ export const mutations = {
             }
         }
         resolve: async (_, item) => {
-            return 
+            return await createHouse(item);
         }
     }
 }

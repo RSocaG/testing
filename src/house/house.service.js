@@ -1,3 +1,3 @@
-export const createHouse = async (item: House) : Promise<House>{
-    
+export const createHouse = async (item) => {
+
 }
