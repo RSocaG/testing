@@ -1,25 +1,13 @@
 'use strict'
-import { schema } from './graphql-builder';
+
+const schema = require('./graphql-builder');
 
 const express = require('express')
 const http = require('http')
-const mysql = require("mysql");
 const ExpressGraphQL = require("express-graphql");
 
 const PORT = 3006
 const app = express()//instancia de express
-
-//Database connection
-app.use(function(req, res, next){
-	res.locals.connection = mysql.createConnection({
-		host     : 'localhost',
-		user     : 'roxy',
-		password : '123456',
-		database : 'BDTEST'
-	});
-	res.locals.connection.connect();
-	next();
-});
 
 app.use("/graphql", ExpressGraphQL({ schema: schema, graphiql: true}));
 const server = http.createServer(app)//instancia del servidor
